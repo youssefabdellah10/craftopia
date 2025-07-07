@@ -25,7 +25,7 @@ export default defineConfig({
       'localhost',
       '127.0.0.1',
       '.openshiftapps.com',
-      'craftopia-frontend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com'
+      'craftopia-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com'
     ]
   },
   preview: {
@@ -35,7 +35,7 @@ export default defineConfig({
       'localhost',
       '127.0.0.1',
       '.openshiftapps.com',
-      'craftopia-frontend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com'
+      'craftopia-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com'
     ]
   },
   base: '/'
