@@ -1,0 +1,36 @@
+@import "tailwindcss";
+@import "tailwindcss/theme";
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap');
+body {
+    background-color: #FAF9F6;
+@import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&family=Lisu+Bosa:wght@400;700&display=swap');
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+  }
+}
+@keyframes fade-in-out {
+  0%, 100% { opacity: 0; transform: translateY(-10px); }
+  10%, 90% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-out {
+  animation: fade-in-out 4s ease forwards;
+}
+
+
+@theme {
+  --color-coral: #e07385;
+  --color-cream: #FAF9F6;
+  --color-burgundy: #921A40;
+  --color-card :#F6EEEE;
+}
