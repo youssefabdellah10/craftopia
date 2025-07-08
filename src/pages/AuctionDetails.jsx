@@ -4,7 +4,6 @@ import { ArrowLeft, Heart, Box, PoundSterling,ChartColumnStacked, Clock, Users, 
 import { motion, AnimatePresence } from 'framer-motion';
 import Footer from '../Components/Footer';
 import { toast } from 'react-hot-toast';
-import { API_BASE_URL } from '../utils/api';
 
 
 const CountdownTimer = ({ endTime, status}) => {
@@ -254,7 +253,7 @@ const getCurrentUserInfo = () => {
 
 const fetchAuctionAndArtist = async () => {
   try {
-    const resAuction = await fetch(`${API_BASE_URL}/auction/${id}`, {
+    const resAuction = await fetch(`http://localhost:3000/auction/${id}`, {
       headers: token ? { Authorization: `Bearer ${token}` } : {},
     });
     const auctionData = await resAuction.json();
@@ -274,14 +273,14 @@ const fetchAuctionAndArtist = async () => {
     }
 
 
-    const resArtist = await fetch(`${API_BASE_URL}/artist/getprofile/${auctionObj.artist.artistId}`, {
+    const resArtist = await fetch(`http://localhost:3000/artist/getprofile/${auctionObj.artist.artistId}`, {
       headers: token ? { Authorization: `Bearer ${token}` } : {},
     });
     const artistData = await resArtist.json();
     setArtist(artistData.artist);
 
     if (token) {
-      const followedRes = await fetch(`${API_BASE_URL}/customer/followed-artists`, {
+      const followedRes = await fetch("http://localhost:3000/customer/followed-artists", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const followedData = await followedRes.json();
@@ -303,7 +302,7 @@ useEffect(() => {
 useEffect(() => {
   const interval = setInterval(async () => {
     try {
-      const res = await fetch(`${API_BASE_URL}/auction/${id}`, {
+      const res = await fetch(`http://localhost:3000/auction/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -342,8 +341,8 @@ const handleFollowClick = async () => {
 
   try {
     const url = newFollowingState
-      ? `${API_BASE_URL}/customer/follow/${artistId}`
-      : `${API_BASE_URL}/customer/unfollow/${artistId}`;
+      ? `http://localhost:3000/customer/follow/${artistId}`
+      : `http://localhost:3000/customer/unfollow/${artistId}`;
 
     await fetch(url, {
       method: 'POST',
@@ -388,8 +387,8 @@ const handleBidSubmit = async () => {
   const auctionId = auction.id;
 
   const url = userBid
-    ? `${API_BASE_URL}/bid/update`
-    : `${API_BASE_URL}/bid/place`;
+    ? 'http://localhost:3000/bid/update'
+    : 'http://localhost:3000/bid/place';
 
   const payload = userBid
     ? { auctionId, newBidAmount: amount }

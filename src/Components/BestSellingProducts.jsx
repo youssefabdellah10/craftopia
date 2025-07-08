@@ -6,7 +6,6 @@ import ProductCard from "./ProductCard";
 import { useWishlist } from "../context/WishlistContext";
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
-import { API_BASE_URL } from '../utils/api';
 
 const BestSellingProducts = () => {
   const [products, setProducts] = useState([]);
@@ -20,7 +19,7 @@ const BestSellingProducts = () => {
 
   useEffect(() => {
     axios
-      .get(`${API_BASE_URL}/product/get`, {
+      .get("http://localhost:3000/product/get", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

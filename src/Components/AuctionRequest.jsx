@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Camera, ChevronDown, Settings, Upload, Edit, Trash2, Package, PoundSterling, Users, Star, Clock, Plus, Menu, ShoppingCart, User, Heart, Search, Gavel, AlertCircle, Loader2 } from 'lucide-react';
 import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
-import { API_BASE_URL } from '../utils/api';
 
 
 
@@ -56,7 +55,7 @@ const AuctionRequest = () => {
         throw new Error('No authentication token found. Please log in to view auction requests.');
       }
 
-      const response = await fetch(`${API_BASE_URL}/auctionRequest/my-requests`, {
+      const response = await fetch('http://localhost:3000/auctionRequest/my-requests', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -80,7 +79,7 @@ const AuctionRequest = () => {
     setLoadingCategories(true);
     setCategoriesError(null);
     try {
-      const response = await fetch(`${API_BASE_URL}/category/all`);
+      const response = await fetch('http://localhost:3000/category/all');
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Failed to fetch categories.');
@@ -109,7 +108,7 @@ const AuctionRequest = () => {
     }
 
     try {
-      const response = await fetch(`${API_BASE_URL}/order/shipment-auction/${auctionId}`, {
+      const response = await fetch(`http://localhost:3000/order/shipment-auction/${auctionId}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -208,7 +207,7 @@ const AuctionRequest = () => {
         productFormData.append('image', file);
       });
 
-      const productResponse = await fetch(`${API_BASE_URL}/product/create`, {
+      const productResponse = await fetch('http://localhost:3000/product/create', {
         method: 'POST',
         body: productFormData,
         headers: {
@@ -232,7 +231,7 @@ const AuctionRequest = () => {
         notes: notes || '',
       };
 
-      const auctionResponse = await fetch(`${API_BASE_URL}/auctionRequest/create`, {
+      const auctionResponse = await fetch('http://localhost:3000/auctionRequest/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

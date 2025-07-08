@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import CompleteProfile from "./CompleteProfile";
-import { API_BASE_URL } from '../utils/api';
 
 const Profile = ({ initialShowEdit = false, onProfileComplete, initialProfile }) => {
   const [profileData, setProfileData] = useState(initialProfile || null);
@@ -12,7 +11,7 @@ const Profile = ({ initialShowEdit = false, onProfileComplete, initialProfile })
     if (!initialProfile) {
       const storedToken = localStorage.getItem("token");
       if (storedToken) {
-        fetch(`${API_BASE_URL}/customer/getprofile`, {
+        fetch("http://localhost:3000/customer/getprofile", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${storedToken}`,

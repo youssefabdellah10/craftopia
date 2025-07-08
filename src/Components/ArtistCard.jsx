@@ -3,7 +3,6 @@ import { Star, Heart, User, Palette } from 'lucide-react';
 import { motion } from 'framer-motion';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { API_BASE_URL } from '../utils/api';
 
 const ArtistCard = ({
   artistId,
@@ -39,8 +38,8 @@ const ArtistCard = ({
 
     try {
       const url = following
-        ? `${API_BASE_URL}/customer/unfollow/${artistId}`
-        : `${API_BASE_URL}/customer/follow/${artistId}`;
+        ? `http://localhost:3000/customer/unfollow/${artistId}`
+        : `http://localhost:3000/customer/follow/${artistId}`;
 
       await axios({
         method: following ? 'delete' : 'post',

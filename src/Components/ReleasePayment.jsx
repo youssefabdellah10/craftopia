@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FaCheckCircle, FaExclamationCircle } from "react-icons/fa";
-import { API_BASE_URL } from '../utils/api';
 
 const ReleasePayment = () => {
     const [heldPayments, setHeldPayments] = useState([]);
@@ -12,7 +11,7 @@ const ReleasePayment = () => {
     const fetchHeldPayments = async () => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.get(`${API_BASE_URL}/payment/escrow/held`, {
+            const res = await axios.get("http://localhost:3000/payment/escrow/held", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setHeldPayments(res.data.data || []);
@@ -47,7 +46,7 @@ const ReleasePayment = () => {
             const token = localStorage.getItem("token");
             for (const id of selectedPayments) {
                 await axios.put(
-                    `${API_BASE_URL}/payment/escrow/release/${id}`,
+                    `http://localhost:3000/payment/escrow/release/${id}`,
                     {},
                     { headers: { Authorization: `Bearer ${token}` } }
                 );

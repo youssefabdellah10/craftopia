@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { API_BASE_URL } from '../utils/api';
 import {
   Star,
   ChatCircleDots,
@@ -21,7 +20,7 @@ const GetProfile = ({ setActiveTab }) => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}/artist/myprofile`, {
+        const response = await fetch("http://localhost:3000/artist/myprofile", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -48,7 +47,7 @@ const GetProfile = ({ setActiveTab }) => {
     const fetchProducts = async () => {
       setLoadingProducts(true);
       try {
-        const res = await fetch(`${API_BASE_URL}/product/get/${profile.artistId}`, {
+        const res = await fetch(`http://localhost:3000/product/get/${profile.artistId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -78,7 +77,7 @@ const GetProfile = ({ setActiveTab }) => {
 
     const fetchAuctionProducts = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}/auction/artist-product/${profile.artistId}`, {
+        const res = await fetch(`http://localhost:3000/auction/artist-product/${profile.artistId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

@@ -6,7 +6,6 @@ import Footer from './Footer';
 import ArtistCard from './ArtistCard';
 import { Button } from './Button';
 import { useNavigate } from 'react-router-dom';
-import { API_BASE_URL } from '../utils/api';
 
 const Following = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -19,7 +18,7 @@ const Following = () => {
       try {
         const token = localStorage.getItem('token');
 
-        const res = await axios.get(`${API_BASE_URL}/customer/followed-artists`, {
+        const res = await axios.get('http://localhost:3000/customer/followed-artists', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

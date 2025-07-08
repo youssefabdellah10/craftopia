@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { API_BASE_URL } from '../utils/api';
 
 const CompleteProfile = ({ onClose, onProfileComplete, initialProfile }) => {
   const [name, setName] = useState(initialProfile?.name || "");
@@ -34,7 +33,7 @@ const CompleteProfile = ({ onClose, onProfileComplete, initialProfile }) => {
     const profileData = { name, username, phone, address };
     const token = localStorage.getItem("token");
 
-    fetch(`${API_BASE_URL}/customer/createprofile`, {
+    fetch("http://localhost:3000/customer/createprofile", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,

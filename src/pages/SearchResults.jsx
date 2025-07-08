@@ -3,7 +3,6 @@ import { useLocation, Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { motion } from 'framer-motion';
 import { PoundSterling } from 'lucide-react';
-import { API_BASE_URL } from '../utils/api';
 
 const SearchResults = () => {
   const location = useLocation();
@@ -29,9 +28,9 @@ const SearchResults = () => {
         const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
         const [productRes, artistRes, auctionRes] = await Promise.all([
-          axios.get(`${API_BASE_URL}/product/get`),
-          axios.get(`${API_BASE_URL}/artist/all`),
-          axios.get(`${API_BASE_URL}/auction`, { headers }),
+          axios.get('http://localhost:3000/product/get'),
+          axios.get('http://localhost:3000/artist/all'),
+          axios.get('http://localhost:3000/auction', { headers }),
         ]);
 
         const allProducts = productRes.data.products || [];

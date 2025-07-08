@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { User, Heart, ShoppingCart } from 'lucide-react';
-import { API_BASE_URL } from '../utils/api';
 
 const Register = () => {
   const [email, setEmail] = useState('');
@@ -40,7 +39,7 @@ const Register = () => {
     }
 
     try {
-      const { data } = await axios.post(`${API_BASE_URL}/auth/register`, {
+      const { data } = await axios.post('http://localhost:3000/auth/register', {
         email,
         password,
         role,

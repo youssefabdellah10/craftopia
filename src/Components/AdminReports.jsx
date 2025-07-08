@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import {toast} from "react-hot-toast";
-import { API_BASE_URL } from '../utils/api';
 
 const AdminReports = () => {
   const [reports, setReports] = useState([]);
@@ -12,8 +11,8 @@ const AdminReports = () => {
     setLoading(true);
     const endpoint =
       activeTab === "submitted"
-        ? `${API_BASE_URL}/report/submitted`
-        : `${API_BASE_URL}/report/reviewed`;
+        ? "http://localhost:3000/report/submitted"
+        : "http://localhost:3000/report/reviewed";
 
     try {
       const response = await fetch(endpoint, {
@@ -46,7 +45,7 @@ const AdminReports = () => {
 
   const handleReview = async (id) => {
     try {
-      const res = await fetch(`${API_BASE_URL}/report/review/${id}`, {
+      const res = await fetch(`http://localhost:3000/report/review/${id}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,

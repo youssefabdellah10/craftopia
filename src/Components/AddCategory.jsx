@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { PlusCircle, Tag } from "lucide-react";
-import { API_BASE_URL } from '../utils/api';
 
 const AddCategory = () => {
   const [name, setName] = useState("");
@@ -21,7 +20,7 @@ const AddCategory = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}/category/all`);
+        const res = await fetch("http://localhost:3000/category/all");
         const data = await res.json();
         setCategories(data.categories || []);
       } catch (err) {
@@ -52,7 +51,7 @@ const AddCategory = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`${API_BASE_URL}/category/create`, {
+      const res = await fetch("http://localhost:3000/category/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

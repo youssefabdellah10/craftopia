@@ -1,6 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { API_BASE_URL } from '../utils/api';
 
 const WishlistContext = createContext();
 
@@ -29,7 +28,7 @@ export const WishlistProvider = ({ children }) => {
 
   const fetchWishlist = async (authToken) => {
   try {
-    const res = await axios.get(`${API_BASE_URL}/wishlist/mywishlist`, {
+    const res = await axios.get("http://localhost:3000/wishlist/mywishlist", {
       headers: {
         Authorization: `Bearer ${authToken}`,
       },
@@ -57,7 +56,7 @@ export const WishlistProvider = ({ children }) => {
 
   const addToWishlist = async (product) => {
   try {
-    await axios.post(`${API_BASE_URL}/wishlist/add/${product.id}`, null, {
+    await axios.post(`http://localhost:3000/wishlist/add/${product.id}`, null, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -86,7 +85,7 @@ export const WishlistProvider = ({ children }) => {
 
   const removeFromWishlist = async (productId) => {
   try {
-    const res = await axios.delete(`${API_BASE_URL}/wishlist/remove/${productId}`, {
+    const res = await axios.delete(`http://localhost:3000/wishlist/remove/${productId}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

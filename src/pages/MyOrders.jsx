@@ -11,7 +11,6 @@ import {
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import ReviewModal from '../Components/ReviewModal';
-import { API_BASE_URL } from '../utils/api';
 const MyOrders = () => {
     const [orders, setOrders] = useState([]);
     const [activeFilter, setActiveFilter] = useState('all');
@@ -29,7 +28,7 @@ const MyOrders = () => {
         const fetchOrders = async () => {
             try {
                 setIsLoading(true);
-                const response = await axios.get(`${API_BASE_URL}/order/myOrders`, {
+                const response = await axios.get('http://localhost:3000/order/myOrders', {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`,
                     },
@@ -68,7 +67,7 @@ const MyOrders = () => {
             const confirmed = window.confirm("Are you sure you want to cancel this order?");
             if (!confirmed) return;
 
-            await axios.put(`${API_BASE_URL}/order/cancel/${orderId}`, {}, {
+            await axios.put(`http://localhost:3000/order/cancel/${orderId}`, {}, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },
@@ -128,7 +127,7 @@ const MyOrders = () => {
 
         try {
             const response = await axios.post(
-                `${API_BASE_URL}/review/create`,
+                'http://localhost:3000/review/create',
                 reviewData,
                 {
                     headers: {

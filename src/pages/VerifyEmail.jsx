@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { User, Heart, ShoppingCart, CheckCircle } from 'lucide-react';
-import { API_BASE_URL } from '../utils/api';
 
 const VerifyEmail = () => {
   const [otpCode, setOtpCode] = useState('');
@@ -29,7 +28,7 @@ const VerifyEmail = () => {
     setLoading(true);
 
     try {
-      await axios.post(`${API_BASE_URL}/auth/verify-email`, {
+      await axios.post('http://localhost:3000/auth/verify-email', {
         userId,
         otpCode,
       });
@@ -53,7 +52,7 @@ const VerifyEmail = () => {
     setLoading(true);
 
     try {
-      await axios.post(`${API_BASE_URL}/auth/resend-otp`, { userId });
+      await axios.post('http://localhost:3000/auth/resend-otp', { userId });
       setSuccessMessage('OTP resent successfully!');
     } catch (err) {
       const message = err.response?.data?.message || 'Failed to resend OTP';

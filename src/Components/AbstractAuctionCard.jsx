@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Clock, Users, ArrowRight, Star ,PoundSterling } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { Link, useNavigate } from 'react-router-dom';
-import { API_BASE_URL } from '../utils/api';
 
 const AbstractAuctionCard = ({ auction, index }) => {
   const navigate = useNavigate();
@@ -11,7 +10,7 @@ const AbstractAuctionCard = ({ auction, index }) => {
   useEffect(() => {
     const fetchArtistRating = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}/artist/getprofile/${auction.artistId}`);
+        const res = await fetch(`http://localhost:3000/artist/getprofile/${auction.artistId}`);
         const data = await res.json();
         setArtistRating(parseFloat(data.artist.averageRating).toFixed(1));
       } catch (error) {

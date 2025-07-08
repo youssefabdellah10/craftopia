@@ -5,7 +5,6 @@ import { EnvelopeIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import Messages from "./Messages";
 import {toast} from "react-hot-toast";
-import { API_BASE_URL } from '../utils/api';
 
 const RequestCustomization = () => {
     const [formData, setFormData] = useState({
@@ -33,13 +32,13 @@ const RequestCustomization = () => {
         const fetchData = async () => {
             const token = localStorage.getItem("token");
             try {
-                const requestsRes = await fetch(`${API_BASE_URL}/customizationRequest/noOffers`, {
+                const requestsRes = await fetch("http://localhost:3000/customizationRequest/noOffers", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 if (!requestsRes.ok) throw new Error("Failed to fetch requests.");
                 const requestsData = await requestsRes.json();
                 setRequests(requestsData);
-                const repliesRes = await fetch(`${API_BASE_URL}/customizationResponse/responses`, {
+                const repliesRes = await fetch("http://localhost:3000/customizationResponse/responses", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 if (!repliesRes.ok) throw new Error("Failed to fetch replies.");
@@ -58,7 +57,7 @@ const RequestCustomization = () => {
                 }, {});
                 setGroupedReplies(grouped);
 
-                const messagesRes = await fetch(`${API_BASE_URL}/msg/unread`, {
+                const messagesRes = await fetch("http://localhost:3000/msg/unread", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 if (!messagesRes.ok) throw new Error("Failed to fetch unread messages.");
@@ -109,7 +108,7 @@ const RequestCustomization = () => {
         const token = localStorage.getItem("token");
 
         try {
-            const response = await fetch(`${API_BASE_URL}/customizationRequest/request`, {
+            const response = await fetch("http://localhost:3000/customizationRequest/request", {
                 method: "POST",
                 headers: { Authorization: `Bearer ${token}` },
                 body: form,
@@ -160,7 +159,7 @@ const RequestCustomization = () => {
         const token = localStorage.getItem("token");
         try {
             const response = await fetch(
-                `${API_BASE_URL}/customizationResponse/${action}/${replyId}`,
+                `http://localhost:3000/customizationResponse/${action}/${replyId}`,
                 {
                     method: "PUT",
                     headers: {
@@ -171,7 +170,7 @@ const RequestCustomization = () => {
             );
 
             if (!response.ok) throw new Error(`Failed to ${action} reply.`);
-            const res = await fetch(`${API_BASE_URL}/customizationResponse/responses`, {
+            const res = await fetch("http://localhost:3000/customizationResponse/responses", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             const data = await res.json();

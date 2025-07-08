@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import {toast} from "react-hot-toast";
-import { API_BASE_URL } from '../utils/api';
 import {
     X,
     ChevronLeft,
@@ -21,7 +20,7 @@ const CompareProducts = () => {
     const [compareList, setCompareList] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch(`${API_BASE_URL}/product/get`)
+        fetch("http://localhost:3000/product/get")
             .then((res) => res.json())
             .then((data) => {
                 const normalProducts = data.products.filter(p => p.type === 'normal');

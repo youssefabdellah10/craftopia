@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { API_BASE_URL } from '../utils/api';
 import {
   FaUser,
   FaPaintBrush,
@@ -62,13 +61,13 @@ const AdminDashboard = () => {
       try {
         const token = localStorage.getItem("token");
         const [artistRes, productRes, customerRes] = await Promise.all([
-          axios.get(`${API_BASE_URL}/artist/all`, {
+          axios.get("http://localhost:3000/artist/all", {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get(`${API_BASE_URL}/product/get`, {
+          axios.get("http://localhost:3000/product/get", {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get(`${API_BASE_URL}/customer/all-customers`, {
+          axios.get("http://localhost:3000/customer/all-customers", {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -127,7 +126,7 @@ const AdminDashboard = () => {
     const fetchSalesData = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get(`${API_BASE_URL}/trackSales/salesHistory`, {
+        const response = await axios.get("http://localhost:3000/trackSales/salesHistory", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -222,7 +221,7 @@ const AdminDashboard = () => {
     const fetchPopularProducts = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get(`${API_BASE_URL}/product/get`, {
+        const response = await axios.get("http://localhost:3000/product/get", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

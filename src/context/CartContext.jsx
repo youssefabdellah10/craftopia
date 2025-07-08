@@ -1,7 +1,6 @@
 import { createContext, useState, useContext, useEffect } from "react";
 import axios from "axios";
 import { useAuth } from "./AuthContext";
-import { API_BASE_URL } from '../utils/api';
 
 const CartContext = createContext();
 
@@ -34,7 +33,7 @@ export const CartProvider = ({ children }) => {
   const fetchCart = async (authToken = token) => {
     try {
       setIsLoading(true);
-      const res = await axios.get(`${API_BASE_URL}/mycart`, {
+      const res = await axios.get("http://localhost:3000/mycart", {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },
@@ -81,7 +80,7 @@ export const CartProvider = ({ children }) => {
     try {
       console.log("🛒 Adding product to cart:", product);
       await axios.post(
-        `${API_BASE_URL}/mycart/add/${product.id}`,
+        `http://localhost:3000/mycart/add/${product.id}`,
         {},
         authHeader
       );
@@ -101,7 +100,7 @@ export const CartProvider = ({ children }) => {
 
     try {
       const res = await axios.post(
-        `${API_BASE_URL}/mycart/increment/${id}`,
+        `http://localhost:3000/mycart/increment/${id}`,
         {},
         authHeader
       );
@@ -125,7 +124,7 @@ export const CartProvider = ({ children }) => {
 
     try {
       const res = await axios.post(
-        `${API_BASE_URL}/mycart/decrement/${id}`,
+        `http://localhost:3000/mycart/decrement/${id}`,
         {},
         authHeader
       );
@@ -151,7 +150,7 @@ export const CartProvider = ({ children }) => {
 
     try {
       await axios.delete(
-        `${API_BASE_URL}/mycart/remove/${id}`,
+        `http://localhost:3000/mycart/remove/${id}`,
         authHeader
       );
       setCartItems((prev) => prev.filter((item) => item.id !== id));
@@ -165,7 +164,7 @@ export const CartProvider = ({ children }) => {
     if (!authHeader) return;
 
     try {
-      await axios.delete(`${API_BASE_URL}/mycart/clear`, authHeader);
+      await axios.delete("http://localhost:3000/mycart/clear", authHeader);
       setCartItems([]);
     } catch (err) {
       console.error("❌ Clear cart failed:", err);

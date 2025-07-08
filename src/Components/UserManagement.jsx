@@ -3,7 +3,6 @@ import { FaUser, FaUserSlash } from "react-icons/fa";
 import axios from "axios";
 import { motion } from "framer-motion";
 import { toast } from "react-hot-toast";
-import { API_BASE_URL } from '../utils/api';
 
 const UserManagement = () => {
   const [tab, setTab] = useState("customers");
@@ -24,10 +23,10 @@ const UserManagement = () => {
       try {
         const token = localStorage.getItem("token");
         const [customersRes, artistsRes] = await Promise.all([
-          axios.get(`${API_BASE_URL}/customer/all-customers`, {
+          axios.get("http://localhost:3000/customer/all-customers", {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get(`${API_BASE_URL}/artist/all`, {
+          axios.get("http://localhost:3000/artist/all", {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -66,7 +65,7 @@ const UserManagement = () => {
 
   const handleBanToggle = async (type, id, currentBanned) => {
     const action = currentBanned ? "unban" : "ban";
-    const url = `${API_BASE_URL}/report/${action}/${id}`;
+    const url = `http://localhost:3000/report/${action}/${id}`;
 
     try {
       const token = localStorage.getItem("token");
@@ -113,7 +112,7 @@ const UserManagement = () => {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.post(`${API_BASE_URL}/admin/add-admin`, adminData, {
+      await axios.post("http://localhost:3000/admin/add-admin", adminData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

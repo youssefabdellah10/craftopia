@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { API_BASE_URL } from '../utils/api';
 
 const RequestCategory = () => {
   const [categoryName, setCategoryName] = useState("");
@@ -10,7 +9,7 @@ const RequestCategory = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}/category/all`);
+        const res = await fetch("http://localhost:3000/category/all");
         const data = await res.json();
         setExistingCategories(data.categories || []);
       } catch (err) {
@@ -45,7 +44,7 @@ const RequestCategory = () => {
     setIsSubmitting(true);
 
     try {
-      const res = await fetch(`${API_BASE_URL}/category/createrequest`, {
+      const res = await fetch("http://localhost:3000/category/createrequest", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

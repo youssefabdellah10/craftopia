@@ -4,7 +4,6 @@ import { motion } from 'framer-motion';
 import { Award, Star, Palette, Users, ArrowRight } from 'lucide-react';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { useNavigate, Link } from 'react-router-dom';
-import { API_BASE_URL } from '../utils/api';
 
 const ArtistsSection = () => {
   const [artists, setArtists] = useState([]);
@@ -17,7 +16,7 @@ const ArtistsSection = () => {
     const fetchArtists = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get(`${API_BASE_URL}/artist/all`, {
+        const response = await axios.get('http://localhost:3000/artist/all', {
           headers: { Authorization: `Bearer ${token}` },
         });
 

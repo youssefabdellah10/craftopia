@@ -10,7 +10,6 @@ import { toast } from 'react-hot-toast';
 import { useCart } from '../context/CartContext';
 import AbstractAuctionCard from '../Components/AbstractAuctionCard';
 import { jwtDecode } from "jwt-decode";
-import { API_BASE_URL } from '../utils/api';
 
 
 
@@ -166,7 +165,7 @@ const ArtistProfileCustomer = () => {
         const token = localStorage.getItem('token');
         const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
-        const profileRes = await fetch(`${API_BASE_URL}/artist/getprofile/${id}`, {
+        const profileRes = await fetch(`http://localhost:3000/artist/getprofile/${id}`, {
           headers
         });
 
@@ -186,7 +185,7 @@ const ArtistProfileCustomer = () => {
         }
 
 
-        const productRes = await fetch(`${API_BASE_URL}/product/get/${id}`, {
+        const productRes = await fetch(`http://localhost:3000/product/get/${id}`, {
           headers
         });
         const productData = await productRes.json();
@@ -241,7 +240,7 @@ const ArtistProfileCustomer = () => {
       if (!token) return;
 
       try {
-        const res = await fetch(`${API_BASE_URL}/customer/followed-artists`, {
+        const res = await fetch(`http://localhost:3000/customer/followed-artists`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -258,7 +257,7 @@ const ArtistProfileCustomer = () => {
 
     const fetchAuctionProducts = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}/auction/artist-product/${id}`);
+        const res = await fetch(`http://localhost:3000/auction/artist-product/${id}`);
         const data = await res.json();
 
         const activeAuctions = data.auctions.filter(a => a.auction.status === 'active' || a.auction.status === 'scheduled');
@@ -293,7 +292,7 @@ const ArtistProfileCustomer = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const res = await fetch(`${API_BASE_URL}/review/artist-reviews/${id}`);
+        const res = await fetch(`http://localhost:3000/review/artist-reviews/${id}`);
         const data = await res.json();
 
         const allReviews = [];
@@ -383,8 +382,8 @@ const ArtistProfileCustomer = () => {
     }
 
     const url = isFollowing
-      ? `${API_BASE_URL}/customer/unfollow/${id}`
-      : `${API_BASE_URL}/customer/follow/${id}`;
+      ? `http://localhost:3000/customer/unfollow/${id}`
+      : `http://localhost:3000/customer/follow/${id}`;
 
     try {
       const res = await fetch(url, {
@@ -429,7 +428,7 @@ const ArtistProfileCustomer = () => {
     }
 
     try {
-      const res = await fetch(`${API_BASE_URL}/report/createReportArtist/${artist.username}`, {
+      const res = await fetch(`http://localhost:3000/report/createReportArtist/${artist.username}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`

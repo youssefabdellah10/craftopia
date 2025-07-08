@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Upload } from "lucide-react";
 import AllProducts from "../Components/AllProducts";
-import { API_BASE_URL } from '../utils/api';
 
 const AddProduct = () => {
   const [formData, setFormData] = useState({
@@ -54,7 +53,7 @@ const AddProduct = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await fetch(`${API_BASE_URL}/product/create`, {
+      const res = await fetch("http://localhost:3000/product/create", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -91,7 +90,7 @@ const AddProduct = () => {
       setLoadingCategories(true);
       setCategoriesError(null);
       try {
-        const response = await fetch(`${API_BASE_URL}/category/all`);
+        const response = await fetch("http://localhost:3000/category/all");
         if (!response.ok) {
           const errorData = await response.json();
           throw new Error(errorData.message || "Failed to fetch categories.");

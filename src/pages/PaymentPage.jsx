@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useCart } from "../context/CartContext";
-import { API_BASE_URL } from '../utils/api';
 
 const PaymentPage = () => {
     const { orderId } = useParams();
@@ -21,7 +20,7 @@ const PaymentPage = () => {
     useEffect(() => {
         const fetchOrder = async () => {
             try {
-                const response = await axios.get(`${API_BASE_URL}/order/${orderId}`, {
+                const response = await axios.get(`http://localhost:3000/order/${orderId}`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`,
                     },
@@ -60,7 +59,7 @@ const PaymentPage = () => {
 
         try {
             await axios.post(
-                `${API_BASE_URL}/payment/escrow/pay/${order.orderId}?creditCardNumber=${cleanedReference}&expiryDate=${expiryDate}`,
+                `http://localhost:3000/payment/escrow/pay/${order.orderId}?creditCardNumber=${cleanedReference}&expiryDate=${expiryDate}`,
                 {},
                 {
                     headers: {

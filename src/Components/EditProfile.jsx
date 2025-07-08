@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-import { API_BASE_URL } from '../utils/api';
 
 const EditProfile = () => {
     const [name, setName] = useState("");
@@ -18,7 +17,7 @@ const EditProfile = () => {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await fetch(`${API_BASE_URL}/artist/myprofile`, {
+                const response = await fetch("http://localhost:3000/artist/myprofile", {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -65,7 +64,7 @@ const EditProfile = () => {
         if (profileVideoFile) formData.append("profileVideo", profileVideoFile);
 
         try {
-            const response = await fetch(`${API_BASE_URL}/artist/update`, {
+            const response = await fetch("http://localhost:3000/artist/update", {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,

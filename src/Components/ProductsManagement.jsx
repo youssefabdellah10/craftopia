@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaTrashAlt } from "react-icons/fa";
-import { API_BASE_URL } from '../utils/api';
 
 const ProductsManagement = () => {
     const [products, setProducts] = useState([]);
@@ -13,7 +12,7 @@ const ProductsManagement = () => {
     const fetchProducts = async () => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.get(`${API_BASE_URL}/product/get`, {
+            const res = await axios.get("http://localhost:3000/product/get", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             const normalProducts = res.data.products.filter(
@@ -43,7 +42,7 @@ const ProductsManagement = () => {
             console.log("Token used for deletion:", token);
 
             await axios.delete(
-                `${API_BASE_URL}/product/delete/${selectedProduct.productId}`,
+                `http://localhost:3000/product/delete/${selectedProduct.productId}`,
                 {
                     headers: { Authorization: `Bearer ${token}` },
                 }

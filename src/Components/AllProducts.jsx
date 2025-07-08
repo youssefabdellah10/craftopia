@@ -3,7 +3,6 @@ import { FaEdit } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { FaTrash } from "react-icons/fa";
 import toast from "react-hot-toast";
-import { API_BASE_URL } from '../utils/api';
 const AllProducts = () => {
   const [products, setProducts] = useState([]);
   const [loadingProducts, setLoadingProducts] = useState(false);
@@ -17,7 +16,7 @@ const AllProducts = () => {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch(`${API_BASE_URL}/artist/myprofile`, {
+        const res = await fetch("http://localhost:3000/artist/myprofile", {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
@@ -40,7 +39,7 @@ const AllProducts = () => {
     setProductError(null);
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`${API_BASE_URL}/product/get/${artistId}`, {
+      const res = await fetch(`http://localhost:3000/product/get/${artistId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -88,7 +87,7 @@ const AllProducts = () => {
   const handleUpdateProduct = async (productId) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/product/update/${productId}`, {
+      const response = await fetch(`http://localhost:3000/product/update/${productId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -115,7 +114,7 @@ const AllProducts = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`${API_BASE_URL}/product/delete/${productId}`, {
+      const response = await fetch(`http://localhost:3000/product/delete/${productId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

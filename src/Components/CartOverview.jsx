@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import {toast} from 'react-hot-toast';
-import { API_BASE_URL } from '../utils/api';
 const ESCROW_FEE = 0;
 
 
@@ -22,7 +21,7 @@ const CartOverview = ({ cartItems }) => {
     const productIds = cartItems.map(item => item.id);
     const quantity = cartItems.map(item => item.cartQuantity);
 
-    const response = await axios.post(`${API_BASE_URL}/order/placeOrder`, {
+    const response = await axios.post('http://localhost:3000/order/placeOrder', {
       productIds,
       quantity
     }, {

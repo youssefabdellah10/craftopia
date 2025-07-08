@@ -2,7 +2,6 @@ import { useEffect, useState, useMemo, useRef } from "react";
 import axios from "axios";
 import { format, isAfter, isBefore } from "date-fns";
 import { BarChart2, CalendarDays } from "lucide-react";
-import { API_BASE_URL } from '../utils/api';
 import {
     BarChart,
     Bar,
@@ -41,7 +40,7 @@ const SalesHistory = () => {
             }
 
             try {
-                const profileRes = await axios.get(`${API_BASE_URL}/artist/myprofile`, {
+                const profileRes = await axios.get("http://localhost:3000/artist/myprofile", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 
@@ -51,7 +50,7 @@ const SalesHistory = () => {
                 setArtistId(fetchedArtistId);
 
                 const salesRes = await axios.get(
-                    `${API_BASE_URL}/trackSales/Salesofartist/${fetchedArtistId}`,
+                    `http://localhost:3000/trackSales/Salesofartist/${fetchedArtistId}`,
                     {
                         headers: { Authorization: `Bearer ${token}` },
                     }

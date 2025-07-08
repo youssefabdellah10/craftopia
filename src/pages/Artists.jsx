@@ -4,7 +4,6 @@ import { ChevronDown } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import ArtistCard from '../Components/ArtistCard';
 import Footer from '../Components/Footer';
-import { API_BASE_URL } from '../utils/api';
 
 const Artists = () => {
   const [artists, setArtists] = useState([]);
@@ -20,8 +19,8 @@ const Artists = () => {
         const token = localStorage.getItem('token');
 
         const [allArtistsRes, categoriesRes] = await Promise.all([
-          axios.get(`${API_BASE_URL}/artist/all`),
-          axios.get(`${API_BASE_URL}/category/all`),
+          axios.get('http://localhost:3000/artist/all'),
+          axios.get('http://localhost:3000/category/all'),
         ]);
 
         let followedArtistIds = [];
@@ -30,7 +29,7 @@ const Artists = () => {
         if (token) {
           try {
             const followedRes = await axios.get(
-              `${API_BASE_URL}/customer/followed-artists`,
+              'http://localhost:3000/customer/followed-artists',
               {
                 headers: { Authorization: `Bearer ${token}` },
               }
@@ -93,8 +92,8 @@ const Artists = () => {
     const isCurrentlyFollowing = targetArtist?.isFollowing;
 
     const url = isCurrentlyFollowing
-      ? `${API_BASE_URL}/customer/unfollow/${artistId}`
-      : `${API_BASE_URL}/customer/follow/${artistId}`;
+      ? `http://localhost:3000/customer/unfollow/${artistId}`
+      : `http://localhost:3000/customer/follow/${artistId}`;
 
     try {
       const res = await fetch(url, {

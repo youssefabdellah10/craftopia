@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { API_BASE_URL } from '../utils/api';
 import {
   Clock, Users, Gavel, Check, X, Eye, PoundSterling,
 } from 'lucide-react';
@@ -53,7 +52,7 @@ const AdminAuctionManagement = () => {
 
   const fetchActiveAuctions = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/auction`, {
+    const response = await fetch('http://localhost:3000/auction', {
       headers: commonHeaders(),
     });
 
@@ -74,7 +73,7 @@ const fetchAuctionRequests = async () => {
   setLoadingRequests(true);
   setErrorRequests(null);
   try {
-    const response = await fetch(`${API_BASE_URL}/auctionRequest/all`, {
+    const response = await fetch('http://localhost:3000/auctionRequest/all', {
       headers: commonHeaders(),
     });
 
@@ -101,7 +100,7 @@ const fetchAuctionRequests = async () => {
 
 const fetchArtists = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/artist/all`, {
+    const response = await fetch('http://localhost:3000/artist/all', {
       headers: commonHeaders(),
     });
 
@@ -122,7 +121,7 @@ const fetchArtists = async () => {
 
 const fetchTodayBids = async () => {
   try {
-    const response = await fetch(`${API_BASE_URL}/bid/today-bids`, {
+    const response = await fetch('http://localhost:3000/bid/today-bids', {
       headers: commonHeaders(),
     });
 
@@ -184,7 +183,7 @@ const handleApproveRequest = async () => {
   };
 
   try {
-    const response = await fetch(`${API_BASE_URL}/auctionRequest/schedule/${requestId}`, {
+    const response = await fetch(`http://localhost:3000/auctionRequest/schedule/${requestId}`, {
       method: 'POST',
       headers: commonHeaders(),
       body: JSON.stringify(approvalBody),
@@ -218,7 +217,7 @@ const handleDeclineRequest = async () => {
 
 
   try {
-    const response = await fetch(`${API_BASE_URL}/auctionRequest/reject/${requestId}`, {
+    const response = await fetch(`http://localhost:3000/auctionRequest/reject/${requestId}`, {
       method: 'POST',
       headers: commonHeaders(),
       body: JSON.stringify(declineBody),

@@ -4,7 +4,6 @@ import { AiOutlineHeart, AiOutlineShoppingCart } from 'react-icons/ai';
 import { FaUser, FaSearch, FaUserFriends } from 'react-icons/fa';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { API_BASE_URL } from '../utils/api';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -23,9 +22,9 @@ const Navbar = () => {
         const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
         const [productsRes, artistsRes, auctionsRes] = await Promise.all([
-          axios.get(`${API_BASE_URL}/product/get`),
-          axios.get(`${API_BASE_URL}/artist/all`),
-          axios.get(`${API_BASE_URL}/auction`, { headers }),
+          axios.get('http://localhost:3000/product/get'),
+          axios.get('http://localhost:3000/artist/all'),
+          axios.get('http://localhost:3000/auction', { headers }),
         ]);
 
         setAllProducts(productsRes.data.products || []);

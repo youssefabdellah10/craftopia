@@ -1,7 +1,6 @@
 import { useEffect, useState, useRef } from "react";
 import { XMarkIcon, PaperAirplaneIcon, PaperClipIcon } from "@heroicons/react/24/solid";
 import { motion, AnimatePresence } from "framer-motion";
-import { API_BASE_URL } from '../utils/api';
 
 const Messages = ({ responseId, onClose }) => {
     const [messages, setMessages] = useState([]);
@@ -19,14 +18,14 @@ const Messages = ({ responseId, onClose }) => {
 
 
     const getConversationByResponseId = async (responseId) => {
-        const res = await fetch(`${API_BASE_URL}/msg/conversation/${responseId}`, {
+        const res = await fetch(`http://localhost:3000/msg/conversation/${responseId}`, {
             headers: { Authorization: `Bearer ${token}` },
         });
         if (!res.ok) throw new Error("Failed to fetch conversation");
         return res.json();
     };
     const sendMessage = async ({ token, responseId, messageContent }) => {
-        const res = await fetch(`${API_BASE_URL}/msg/send/${responseId}`, {
+        const res = await fetch(`http://localhost:3000/msg/send/${responseId}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

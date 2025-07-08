@@ -2,7 +2,6 @@ import { useState, useEffect, useMemo } from "react";
 import { Star, Package, Ruler, Palette } from "lucide-react";
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
-import { API_BASE_URL } from '../utils/api';
 
 const ProductInfo = ({ product }) => {
   const {
@@ -98,7 +97,7 @@ const ProductInfo = ({ product }) => {
         artistId = product.artist.id || product.artist.artistId;
       } else if (typeof product.artist === "string") {
         const resName = await fetch(
-          `${API_BASE_URL}/artist/getbyname/${encodeURIComponent(product.artist)}`,
+          `http://localhost:3000/artist/getbyname/${encodeURIComponent(product.artist)}`,
           { headers }
         );
         if (!resName.ok) {
@@ -111,7 +110,7 @@ const ProductInfo = ({ product }) => {
       if (!artistId) {
         throw new Error("Artist ID not found");
       }
-      const res = await fetch(`${API_BASE_URL}/artist/getprofile/${artistId}`, {
+      const res = await fetch(`http://localhost:3000/artist/getprofile/${artistId}`, {
         headers,
       });
       if (!res.ok) {

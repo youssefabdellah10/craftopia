@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import axios from "axios";
 import { motion } from "framer-motion";
-import { API_BASE_URL } from '../utils/api';
 
 const decodeToken = () => {
   try {
@@ -44,7 +43,7 @@ const ProductReview = ({ productId, onStatsUpdate }) => {
   useEffect(() => {
     if (!productId) return;
     axios
-      .get(`${API_BASE_URL}/review/getreview/${productId}`)
+      .get(`http://localhost:3000/review/getreview/${productId}`)
       .then((res) => {
         const { reviews, averageRating, totalReviews } = res.data;
         setReviews(Array.isArray(reviews) ? reviews : []);
@@ -65,7 +64,7 @@ const ProductReview = ({ productId, onStatsUpdate }) => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`${API_BASE_URL}/review/deletereview/${id}`, {
+      await axios.delete(`http://localhost:3000/review/deletereview/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setReviews((prev) => prev.filter((r) => r.reviewId !== id));
@@ -78,7 +77,7 @@ const ProductReview = ({ productId, onStatsUpdate }) => {
     if (editText.trim().length < 10 || editText.trim().length > 500) return;
     try {
       await axios.put(
-        `${API_BASE_URL}/review/updatereview/${id}`,
+        `http://localhost:3000/review/updatereview/${id}`,
         { review: editText },
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
@@ -103,7 +102,7 @@ const ProductReview = ({ productId, onStatsUpdate }) => {
 
     try {
       await axios.post(
-        `${API_BASE_URL}/review/create`,
+        "http://localhost:3000/review/create",
         {
           productId,
           rating: Number(newRating),
@@ -115,7 +114,7 @@ const ProductReview = ({ productId, onStatsUpdate }) => {
       );
 
       const res = await axios.get(
-        `${API_BASE_URL}/review/getreview/${productId}`
+        `http://localhost:3000/review/getreview/${productId}`
       );
       const { reviews, totalReviews, averageRating } = res.data;
       setReviews(reviews);
@@ -141,7 +140,7 @@ const ProductReview = ({ productId, onStatsUpdate }) => {
       if (attachment) formData.append("attachment", attachment);
 
       const res = await fetch(
-        `${API_BASE_URL}/report/createReportUser/${reportingUsername}`,
+        `http://localhost:3000/report/createReportUser/${reportingUsername}`,
         {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },

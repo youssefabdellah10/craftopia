@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { ChatBubbleOvalLeftIcon, XMarkIcon, ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/solid';
 import { ArrowPathIcon } from "@heroicons/react/24/solid";
-import ArtistResponses from "./ArtistResponses";
+import ArtistResponses from "./ ArtistResponses";
 import { motion } from "framer-motion";
 import {toast} from "react-hot-toast";
-import { API_BASE_URL } from '../utils/api';
 const ReviewRequests = () => {
     const [requests, setRequests] = useState([]);
     const [error, setError] = useState(null);
@@ -17,7 +16,7 @@ const ReviewRequests = () => {
         const fetchRequests = async () => {
             try {
                 const token = localStorage.getItem("token");
-                const response = await fetch(`${API_BASE_URL}/customizationRequest/requests`, {
+                const response = await fetch("http://localhost:3000/customizationRequest/requests", {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -81,7 +80,7 @@ const ReviewRequests = () => {
                 formData.append("image", replyData.imageFile);
             }
 
-            const response = await fetch(`${API_BASE_URL}/customizationResponse/respond/${requestId}`, {
+            const response = await fetch(`http://localhost:3000/customizationResponse/respond/${requestId}`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,

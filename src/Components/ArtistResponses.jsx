@@ -3,7 +3,6 @@ import { EnvelopeIcon, FlagIcon } from "@heroicons/react/24/solid";
 import { motion } from "framer-motion";
 import Messages from "./Messages";
 import { EllipsisVerticalIcon, TruckIcon } from '@heroicons/react/24/outline';
-import { API_BASE_URL } from '../utils/api';
 
 const ArtistResponses = () => {
     const [responses, setResponses] = useState([]);
@@ -28,7 +27,7 @@ const ArtistResponses = () => {
         const fetchData = async () => {
             try {
                 const token = localStorage.getItem("token");
-                const responsesRes = await fetch(`${API_BASE_URL}/customizationResponse/artist/responses`, {
+                const responsesRes = await fetch("http://localhost:3000/customizationResponse/artist/responses", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 
@@ -36,7 +35,7 @@ const ArtistResponses = () => {
                 const data = await responsesRes.json();
                 setResponses(data.responses);
                 setStatistics(data.statistics);
-                const messagesRes = await fetch(`${API_BASE_URL}/msg/unread`, {
+                const messagesRes = await fetch("http://localhost:3000/msg/unread", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 
@@ -106,7 +105,7 @@ const ArtistResponses = () => {
                 formData.append("attachment", attachment);
             }
 
-            const res = await fetch(`${API_BASE_URL}/report/createReportUser/${reportingUsername}`, {
+            const res = await fetch(`http://localhost:3000/report/createReportUser/${reportingUsername}`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -136,7 +135,7 @@ const ArtistResponses = () => {
     const handleShipOrder = async (responseId) => {
         try {
             const token = localStorage.getItem("token");
-            const res = await fetch(`${API_BASE_URL}/order/ship/${responseId}`, {
+            const res = await fetch(`http://localhost:3000/order/ship/${responseId}`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`

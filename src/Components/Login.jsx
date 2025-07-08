@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { User, Heart, ShoppingCart } from 'lucide-react';
-import { API_BASE_URL } from '../utils/api';
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -22,7 +21,7 @@ const Login = () => {
 
     try {
       const { data } = await axios.post(
-        `${API_BASE_URL}/auth/login`,
+        'http://localhost:3000/auth/login',
         { email, password }
       );
       login(data.token);
