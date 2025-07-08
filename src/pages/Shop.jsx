@@ -24,7 +24,7 @@ const Shop = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const res = await fetch('http://localhost:3000/product/get');
+                const res = await fetch('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/product/get');
                 const data = await res.json();
 
                 const productsArray = data.products || [];

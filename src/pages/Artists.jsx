@@ -19,8 +19,8 @@ const Artists = () => {
         const token = localStorage.getItem('token');
 
         const [allArtistsRes, categoriesRes] = await Promise.all([
-          axios.get('http://localhost:3000/artist/all'),
-          axios.get('http://localhost:3000/category/all'),
+          axios.get('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/artist/all'),
+          axios.get('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/category/all'),
         ]);
 
         let followedArtistIds = [];
@@ -29,7 +29,7 @@ const Artists = () => {
         if (token) {
           try {
             const followedRes = await axios.get(
-              'http://localhost:3000/customer/followed-artists',
+              'https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customer/followed-artists',
               {
                 headers: { Authorization: `Bearer ${token}` },
               }
@@ -92,8 +92,8 @@ const Artists = () => {
     const isCurrentlyFollowing = targetArtist?.isFollowing;
 
     const url = isCurrentlyFollowing
-      ? `http://localhost:3000/customer/unfollow/${artistId}`
-      : `http://localhost:3000/customer/follow/${artistId}`;
+      ? `https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customer/unfollow/${artistId}`
+      : `https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customer/follow/${artistId}`;
 
     try {
       const res = await fetch(url, {

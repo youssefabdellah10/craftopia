@@ -61,13 +61,13 @@ const AdminDashboard = () => {
       try {
         const token = localStorage.getItem("token");
         const [artistRes, productRes, customerRes] = await Promise.all([
-          axios.get("http://localhost:3000/artist/all", {
+          axios.get("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/artist/all", {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get("http://localhost:3000/product/get", {
+          axios.get("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/product/get", {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get("http://localhost:3000/customer/all-customers", {
+          axios.get("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customer/all-customers", {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -126,7 +126,7 @@ const AdminDashboard = () => {
     const fetchSalesData = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:3000/trackSales/salesHistory", {
+        const response = await axios.get("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/trackSales/salesHistory", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -221,7 +221,7 @@ const AdminDashboard = () => {
     const fetchPopularProducts = async () => {
       try {
         const token = localStorage.getItem("token");
-        const response = await axios.get("http://localhost:3000/product/get", {
+        const response = await axios.get("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/product/get", {
           headers: {
             Authorization: `Bearer ${token}`,
           },

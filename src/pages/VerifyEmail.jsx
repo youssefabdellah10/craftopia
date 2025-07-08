@@ -28,7 +28,7 @@ const VerifyEmail = () => {
     setLoading(true);
 
     try {
-      await axios.post('http://localhost:3000/auth/verify-email', {
+      await axios.post('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/auth/verify-email', {
         userId,
         otpCode,
       });
@@ -52,7 +52,7 @@ const VerifyEmail = () => {
     setLoading(true);
 
     try {
-      await axios.post('http://localhost:3000/auth/resend-otp', { userId });
+      await axios.post('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/auth/resend-otp', { userId });
       setSuccessMessage('OTP resent successfully!');
     } catch (err) {
       const message = err.response?.data?.message || 'Failed to resend OTP';

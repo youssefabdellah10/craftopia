@@ -17,7 +17,7 @@ const EditProfile = () => {
     useEffect(() => {
         const fetchProfile = async () => {
             try {
-                const response = await fetch("http://localhost:3000/artist/myprofile", {
+                const response = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/artist/myprofile", {
                     method: "GET",
                     headers: {
                         "Content-Type": "application/json",
@@ -64,7 +64,7 @@ const EditProfile = () => {
         if (profileVideoFile) formData.append("profileVideo", profileVideoFile);
 
         try {
-            const response = await fetch("http://localhost:3000/artist/update", {
+            const response = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/artist/update", {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem("token")}`,

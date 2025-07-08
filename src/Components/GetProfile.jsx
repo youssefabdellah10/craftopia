@@ -20,7 +20,7 @@ const GetProfile = ({ setActiveTab }) => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const response = await fetch("http://localhost:3000/artist/myprofile", {
+        const response = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/artist/myprofile", {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -47,7 +47,7 @@ const GetProfile = ({ setActiveTab }) => {
     const fetchProducts = async () => {
       setLoadingProducts(true);
       try {
-        const res = await fetch(`http://localhost:3000/product/get/${profile.artistId}`, {
+        const res = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/product/get/${profile.artistId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",
@@ -77,7 +77,7 @@ const GetProfile = ({ setActiveTab }) => {
 
     const fetchAuctionProducts = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/auction/artist-product/${profile.artistId}`, {
+        const res = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/auction/artist-product/${profile.artistId}`, {
           method: "GET",
           headers: {
             "Content-Type": "application/json",

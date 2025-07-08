@@ -12,7 +12,7 @@ const ProductsManagement = () => {
     const fetchProducts = async () => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.get("http://localhost:3000/product/get", {
+            const res = await axios.get("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/product/get", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             const normalProducts = res.data.products.filter(
@@ -42,7 +42,7 @@ const ProductsManagement = () => {
             console.log("Token used for deletion:", token);
 
             await axios.delete(
-                `http://localhost:3000/product/delete/${selectedProduct.productId}`,
+                `https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/product/delete/${selectedProduct.productId}`,
                 {
                     headers: { Authorization: `Bearer ${token}` },
                 }

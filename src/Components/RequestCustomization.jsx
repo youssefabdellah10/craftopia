@@ -32,13 +32,13 @@ const RequestCustomization = () => {
         const fetchData = async () => {
             const token = localStorage.getItem("token");
             try {
-                const requestsRes = await fetch("http://localhost:3000/customizationRequest/noOffers", {
+                const requestsRes = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customizationRequest/noOffers", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 if (!requestsRes.ok) throw new Error("Failed to fetch requests.");
                 const requestsData = await requestsRes.json();
                 setRequests(requestsData);
-                const repliesRes = await fetch("http://localhost:3000/customizationResponse/responses", {
+                const repliesRes = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customizationResponse/responses", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 if (!repliesRes.ok) throw new Error("Failed to fetch replies.");
@@ -57,7 +57,7 @@ const RequestCustomization = () => {
                 }, {});
                 setGroupedReplies(grouped);
 
-                const messagesRes = await fetch("http://localhost:3000/msg/unread", {
+                const messagesRes = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/msg/unread", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
                 if (!messagesRes.ok) throw new Error("Failed to fetch unread messages.");
@@ -108,7 +108,7 @@ const RequestCustomization = () => {
         const token = localStorage.getItem("token");
 
         try {
-            const response = await fetch("http://localhost:3000/customizationRequest/request", {
+            const response = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customizationRequest/request", {
                 method: "POST",
                 headers: { Authorization: `Bearer ${token}` },
                 body: form,
@@ -159,7 +159,7 @@ const RequestCustomization = () => {
         const token = localStorage.getItem("token");
         try {
             const response = await fetch(
-                `http://localhost:3000/customizationResponse/${action}/${replyId}`,
+                `https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customizationResponse/${action}/${replyId}`,
                 {
                     method: "PUT",
                     headers: {
@@ -170,7 +170,7 @@ const RequestCustomization = () => {
             );
 
             if (!response.ok) throw new Error(`Failed to ${action} reply.`);
-            const res = await fetch("http://localhost:3000/customizationResponse/responses", {
+            const res = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customizationResponse/responses", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             const data = await res.json();

@@ -18,7 +18,7 @@ const Following = () => {
       try {
         const token = localStorage.getItem('token');
 
-        const res = await axios.get('http://localhost:3000/customer/followed-artists', {
+        const res = await axios.get('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customer/followed-artists', {
           headers: {
             Authorization: `Bearer ${token}`,
           },

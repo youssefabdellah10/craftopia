@@ -43,7 +43,7 @@ const ProductReview = ({ productId, onStatsUpdate }) => {
   useEffect(() => {
     if (!productId) return;
     axios
-      .get(`http://localhost:3000/review/getreview/${productId}`)
+      .get(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/review/getreview/${productId}`)
       .then((res) => {
         const { reviews, averageRating, totalReviews } = res.data;
         setReviews(Array.isArray(reviews) ? reviews : []);
@@ -64,7 +64,7 @@ const ProductReview = ({ productId, onStatsUpdate }) => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:3000/review/deletereview/${id}`, {
+      await axios.delete(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/review/deletereview/${id}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
       });
       setReviews((prev) => prev.filter((r) => r.reviewId !== id));
@@ -77,7 +77,7 @@ const ProductReview = ({ productId, onStatsUpdate }) => {
     if (editText.trim().length < 10 || editText.trim().length > 500) return;
     try {
       await axios.put(
-        `http://localhost:3000/review/updatereview/${id}`,
+        `https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/review/updatereview/${id}`,
         { review: editText },
         { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
       );
@@ -102,7 +102,7 @@ const ProductReview = ({ productId, onStatsUpdate }) => {
 
     try {
       await axios.post(
-        "http://localhost:3000/review/create",
+        "https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/review/create",
         {
           productId,
           rating: Number(newRating),
@@ -114,7 +114,7 @@ const ProductReview = ({ productId, onStatsUpdate }) => {
       );
 
       const res = await axios.get(
-        `http://localhost:3000/review/getreview/${productId}`
+        `https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/review/getreview/${productId}`
       );
       const { reviews, totalReviews, averageRating } = res.data;
       setReviews(reviews);
@@ -140,7 +140,7 @@ const ProductReview = ({ productId, onStatsUpdate }) => {
       if (attachment) formData.append("attachment", attachment);
 
       const res = await fetch(
-        `http://localhost:3000/report/createReportUser/${reportingUsername}`,
+        `https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/report/createReportUser/${reportingUsername}`,
         {
           method: "POST",
           headers: { Authorization: `Bearer ${token}` },

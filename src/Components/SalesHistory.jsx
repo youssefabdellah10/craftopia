@@ -40,7 +40,7 @@ const SalesHistory = () => {
             }
 
             try {
-                const profileRes = await axios.get("http://localhost:3000/artist/myprofile", {
+                const profileRes = await axios.get("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/artist/myprofile", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 
@@ -50,7 +50,7 @@ const SalesHistory = () => {
                 setArtistId(fetchedArtistId);
 
                 const salesRes = await axios.get(
-                    `http://localhost:3000/trackSales/Salesofartist/${fetchedArtistId}`,
+                    `https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/trackSales/Salesofartist/${fetchedArtistId}`,
                     {
                         headers: { Authorization: `Bearer ${token}` },
                     }

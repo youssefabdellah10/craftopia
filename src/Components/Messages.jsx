@@ -18,14 +18,14 @@ const Messages = ({ responseId, onClose }) => {
 
 
     const getConversationByResponseId = async (responseId) => {
-        const res = await fetch(`http://localhost:3000/msg/conversation/${responseId}`, {
+        const res = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/msg/conversation/${responseId}`, {
             headers: { Authorization: `Bearer ${token}` },
         });
         if (!res.ok) throw new Error("Failed to fetch conversation");
         return res.json();
     };
     const sendMessage = async ({ token, responseId, messageContent }) => {
-        const res = await fetch(`http://localhost:3000/msg/send/${responseId}`, {
+        const res = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/msg/send/${responseId}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

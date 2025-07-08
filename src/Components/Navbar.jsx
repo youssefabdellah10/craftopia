@@ -22,9 +22,9 @@ const Navbar = () => {
         const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
         const [productsRes, artistsRes, auctionsRes] = await Promise.all([
-          axios.get('http://localhost:3000/product/get'),
-          axios.get('http://localhost:3000/artist/all'),
-          axios.get('http://localhost:3000/auction', { headers }),
+          axios.get('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/product/get'),
+          axios.get('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/artist/all'),
+          axios.get('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/auction', { headers }),
         ]);
 
         setAllProducts(productsRes.data.products || []);

@@ -11,7 +11,7 @@ const ReleasePayment = () => {
     const fetchHeldPayments = async () => {
         try {
             const token = localStorage.getItem("token");
-            const res = await axios.get("http://localhost:3000/payment/escrow/held", {
+            const res = await axios.get("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/payment/escrow/held", {
                 headers: { Authorization: `Bearer ${token}` },
             });
             setHeldPayments(res.data.data || []);
@@ -46,7 +46,7 @@ const ReleasePayment = () => {
             const token = localStorage.getItem("token");
             for (const id of selectedPayments) {
                 await axios.put(
-                    `http://localhost:3000/payment/escrow/release/${id}`,
+                    `https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/payment/escrow/release/${id}`,
                     {},
                     { headers: { Authorization: `Bearer ${token}` } }
                 );

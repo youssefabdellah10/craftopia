@@ -28,7 +28,7 @@ export const WishlistProvider = ({ children }) => {
 
   const fetchWishlist = async (authToken) => {
   try {
-    const res = await axios.get("http://localhost:3000/wishlist/mywishlist", {
+    const res = await axios.get("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/wishlist/mywishlist", {
       headers: {
         Authorization: `Bearer ${authToken}`,
       },
@@ -56,7 +56,7 @@ export const WishlistProvider = ({ children }) => {
 
   const addToWishlist = async (product) => {
   try {
-    await axios.post(`http://localhost:3000/wishlist/add/${product.id}`, null, {
+    await axios.post(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/wishlist/add/${product.id}`, null, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -85,7 +85,7 @@ export const WishlistProvider = ({ children }) => {
 
   const removeFromWishlist = async (productId) => {
   try {
-    const res = await axios.delete(`http://localhost:3000/wishlist/remove/${productId}`, {
+    const res = await axios.delete(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/wishlist/remove/${productId}`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },

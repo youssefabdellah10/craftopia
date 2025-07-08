@@ -23,10 +23,10 @@ const UserManagement = () => {
       try {
         const token = localStorage.getItem("token");
         const [customersRes, artistsRes] = await Promise.all([
-          axios.get("http://localhost:3000/customer/all-customers", {
+          axios.get("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customer/all-customers", {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get("http://localhost:3000/artist/all", {
+          axios.get("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/artist/all", {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -65,7 +65,7 @@ const UserManagement = () => {
 
   const handleBanToggle = async (type, id, currentBanned) => {
     const action = currentBanned ? "unban" : "ban";
-    const url = `http://localhost:3000/report/${action}/${id}`;
+    const url = `https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/report/${action}/${id}`;
 
     try {
       const token = localStorage.getItem("token");
@@ -112,7 +112,7 @@ const UserManagement = () => {
     try {
       const token = localStorage.getItem("token");
 
-      await axios.post("http://localhost:3000/admin/add-admin", adminData, {
+      await axios.post("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/admin/add-admin", adminData, {
         headers: { Authorization: `Bearer ${token}` },
       });
 

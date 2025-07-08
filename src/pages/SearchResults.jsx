@@ -28,9 +28,9 @@ const SearchResults = () => {
         const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
         const [productRes, artistRes, auctionRes] = await Promise.all([
-          axios.get('http://localhost:3000/product/get'),
-          axios.get('http://localhost:3000/artist/all'),
-          axios.get('http://localhost:3000/auction', { headers }),
+          axios.get('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/product/get'),
+          axios.get('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/artist/all'),
+          axios.get('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/auction', { headers }),
         ]);
 
         const allProducts = productRes.data.products || [];

@@ -20,7 +20,7 @@ const PaymentPage = () => {
     useEffect(() => {
         const fetchOrder = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/order/${orderId}`, {
+                const response = await axios.get(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/order/${orderId}`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`,
                     },
@@ -59,7 +59,7 @@ const PaymentPage = () => {
 
         try {
             await axios.post(
-                `http://localhost:3000/payment/escrow/pay/${order.orderId}?creditCardNumber=${cleanedReference}&expiryDate=${expiryDate}`,
+                `https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/payment/escrow/pay/${order.orderId}?creditCardNumber=${cleanedReference}&expiryDate=${expiryDate}`,
                 {},
                 {
                     headers: {

@@ -20,7 +20,7 @@ const AddCategory = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const res = await fetch("http://localhost:3000/category/all");
+        const res = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/category/all");
         const data = await res.json();
         setCategories(data.categories || []);
       } catch (err) {
@@ -51,7 +51,7 @@ const AddCategory = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch("http://localhost:3000/category/create", {
+      const res = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/category/create", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

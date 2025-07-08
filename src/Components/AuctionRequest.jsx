@@ -55,7 +55,7 @@ const AuctionRequest = () => {
         throw new Error('No authentication token found. Please log in to view auction requests.');
       }
 
-      const response = await fetch('http://localhost:3000/auctionRequest/my-requests', {
+      const response = await fetch('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/auctionRequest/my-requests', {
         method: 'GET',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -79,7 +79,7 @@ const AuctionRequest = () => {
     setLoadingCategories(true);
     setCategoriesError(null);
     try {
-      const response = await fetch('http://localhost:3000/category/all');
+      const response = await fetch('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/category/all');
       if (!response.ok) {
         const errorData = await response.json();
         throw new Error(errorData.message || 'Failed to fetch categories.');
@@ -108,7 +108,7 @@ const AuctionRequest = () => {
     }
 
     try {
-      const response = await fetch(`http://localhost:3000/order/shipment-auction/${auctionId}`, {
+      const response = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/order/shipment-auction/${auctionId}`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -207,7 +207,7 @@ const AuctionRequest = () => {
         productFormData.append('image', file);
       });
 
-      const productResponse = await fetch('http://localhost:3000/product/create', {
+      const productResponse = await fetch('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/product/create', {
         method: 'POST',
         body: productFormData,
         headers: {
@@ -231,7 +231,7 @@ const AuctionRequest = () => {
         notes: notes || '',
       };
 
-      const auctionResponse = await fetch('http://localhost:3000/auctionRequest/create', {
+      const auctionResponse = await fetch('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/auctionRequest/create', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

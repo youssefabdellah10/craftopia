@@ -38,8 +38,8 @@ const ArtistCard = ({
 
     try {
       const url = following
-        ? `http://localhost:3000/customer/unfollow/${artistId}`
-        : `http://localhost:3000/customer/follow/${artistId}`;
+        ? `https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customer/unfollow/${artistId}`
+        : `https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customer/follow/${artistId}`;
 
       await axios({
         method: following ? 'delete' : 'post',

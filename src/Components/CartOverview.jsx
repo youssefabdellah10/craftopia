@@ -21,7 +21,7 @@ const CartOverview = ({ cartItems }) => {
     const productIds = cartItems.map(item => item.id);
     const quantity = cartItems.map(item => item.cartQuantity);
 
-    const response = await axios.post('http://localhost:3000/order/placeOrder', {
+    const response = await axios.post('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/order/placeOrder', {
       productIds,
       quantity
     }, {

@@ -21,7 +21,7 @@ const Login = () => {
 
     try {
       const { data } = await axios.post(
-        'http://localhost:3000/auth/login',
+        'https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/auth/login',
         { email, password }
       );
       login(data.token);

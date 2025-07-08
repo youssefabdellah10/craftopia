@@ -19,7 +19,7 @@ const AvaliableProducts = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3000/product/get", {
+      .get("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/product/get", {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },

@@ -27,7 +27,7 @@ const ArtistResponses = () => {
         const fetchData = async () => {
             try {
                 const token = localStorage.getItem("token");
-                const responsesRes = await fetch("http://localhost:3000/customizationResponse/artist/responses", {
+                const responsesRes = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customizationResponse/artist/responses", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 
@@ -35,7 +35,7 @@ const ArtistResponses = () => {
                 const data = await responsesRes.json();
                 setResponses(data.responses);
                 setStatistics(data.statistics);
-                const messagesRes = await fetch("http://localhost:3000/msg/unread", {
+                const messagesRes = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/msg/unread", {
                     headers: { Authorization: `Bearer ${token}` },
                 });
 
@@ -105,7 +105,7 @@ const ArtistResponses = () => {
                 formData.append("attachment", attachment);
             }
 
-            const res = await fetch(`http://localhost:3000/report/createReportUser/${reportingUsername}`, {
+            const res = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/report/createReportUser/${reportingUsername}`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -135,7 +135,7 @@ const ArtistResponses = () => {
     const handleShipOrder = async (responseId) => {
         try {
             const token = localStorage.getItem("token");
-            const res = await fetch(`http://localhost:3000/order/ship/${responseId}`, {
+            const res = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/order/ship/${responseId}`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`

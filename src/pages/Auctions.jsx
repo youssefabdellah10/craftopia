@@ -17,10 +17,10 @@ const Auctions = () => {
       setLoading(true);
       try {
         const [auctionRes, categoryRes] = await Promise.all([
-          fetch('http://localhost:3000/auction', {
+          fetch('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/auction', {
             headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
           }),
-          fetch('http://localhost:3000/category/all'),
+          fetch('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/category/all'),
         ]);
         const [auctionData, categoryData] = await Promise.all([
           auctionRes.json(),

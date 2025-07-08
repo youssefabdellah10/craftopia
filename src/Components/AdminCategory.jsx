@@ -10,12 +10,12 @@ const AdminCategory = ({ setSelected }) => {
     const fetchData = async () => {
       try {
         const token = localStorage.getItem("token");
-        const requestRes = await fetch("http://localhost:3000/category/getrequest", {
+        const requestRes = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/category/getrequest", {
           headers: { Authorization: `Bearer ${token}` },
         });
 
         const requestData = await requestRes.json();
-        const catRes = await fetch("http://localhost:3000/category/all");
+        const catRes = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/category/all");
         const catData = await catRes.json();
 
         const allRequests = requestData.requestedCategories || [];

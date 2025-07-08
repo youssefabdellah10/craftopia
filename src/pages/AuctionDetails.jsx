@@ -253,7 +253,7 @@ const getCurrentUserInfo = () => {
 
 const fetchAuctionAndArtist = async () => {
   try {
-    const resAuction = await fetch(`http://localhost:3000/auction/${id}`, {
+    const resAuction = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/auction/${id}`, {
       headers: token ? { Authorization: `Bearer ${token}` } : {},
     });
     const auctionData = await resAuction.json();
@@ -273,14 +273,14 @@ const fetchAuctionAndArtist = async () => {
     }
 
 
-    const resArtist = await fetch(`http://localhost:3000/artist/getprofile/${auctionObj.artist.artistId}`, {
+    const resArtist = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/artist/getprofile/${auctionObj.artist.artistId}`, {
       headers: token ? { Authorization: `Bearer ${token}` } : {},
     });
     const artistData = await resArtist.json();
     setArtist(artistData.artist);
 
     if (token) {
-      const followedRes = await fetch("http://localhost:3000/customer/followed-artists", {
+      const followedRes = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customer/followed-artists", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const followedData = await followedRes.json();
@@ -302,7 +302,7 @@ useEffect(() => {
 useEffect(() => {
   const interval = setInterval(async () => {
     try {
-      const res = await fetch(`http://localhost:3000/auction/${id}`, {
+      const res = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/auction/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
@@ -341,8 +341,8 @@ const handleFollowClick = async () => {
 
   try {
     const url = newFollowingState
-      ? `http://localhost:3000/customer/follow/${artistId}`
-      : `http://localhost:3000/customer/unfollow/${artistId}`;
+      ? `https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customer/follow/${artistId}`
+      : `https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customer/unfollow/${artistId}`;
 
     await fetch(url, {
       method: 'POST',
@@ -387,8 +387,8 @@ const handleBidSubmit = async () => {
   const auctionId = auction.id;
 
   const url = userBid
-    ? 'http://localhost:3000/bid/update'
-    : 'http://localhost:3000/bid/place';
+    ? 'https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/bid/update'
+    : 'https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/bid/place';
 
   const payload = userBid
     ? { auctionId, newBidAmount: amount }

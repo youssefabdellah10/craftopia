@@ -39,7 +39,7 @@ const Register = () => {
     }
 
     try {
-      const { data } = await axios.post('http://localhost:3000/auth/register', {
+      const { data } = await axios.post('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/auth/register', {
         email,
         password,
         role,

@@ -53,7 +53,7 @@ const AddProduct = () => {
     try {
       const token = localStorage.getItem("token");
 
-      const res = await fetch("http://localhost:3000/product/create", {
+      const res = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/product/create", {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -90,7 +90,7 @@ const AddProduct = () => {
       setLoadingCategories(true);
       setCategoriesError(null);
       try {
-        const response = await fetch("http://localhost:3000/category/all");
+        const response = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/category/all");
         if (!response.ok) {
           const errorData = await response.json();
           throw new Error(errorData.message || "Failed to fetch categories.");

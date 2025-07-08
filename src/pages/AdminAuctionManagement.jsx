@@ -52,7 +52,7 @@ const AdminAuctionManagement = () => {
 
   const fetchActiveAuctions = async () => {
   try {
-    const response = await fetch('http://localhost:3000/auction', {
+    const response = await fetch('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/auction', {
       headers: commonHeaders(),
     });
 
@@ -73,7 +73,7 @@ const fetchAuctionRequests = async () => {
   setLoadingRequests(true);
   setErrorRequests(null);
   try {
-    const response = await fetch('http://localhost:3000/auctionRequest/all', {
+    const response = await fetch('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/auctionRequest/all', {
       headers: commonHeaders(),
     });
 
@@ -100,7 +100,7 @@ const fetchAuctionRequests = async () => {
 
 const fetchArtists = async () => {
   try {
-    const response = await fetch('http://localhost:3000/artist/all', {
+    const response = await fetch('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/artist/all', {
       headers: commonHeaders(),
     });
 
@@ -121,7 +121,7 @@ const fetchArtists = async () => {
 
 const fetchTodayBids = async () => {
   try {
-    const response = await fetch('http://localhost:3000/bid/today-bids', {
+    const response = await fetch('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/bid/today-bids', {
       headers: commonHeaders(),
     });
 
@@ -183,7 +183,7 @@ const handleApproveRequest = async () => {
   };
 
   try {
-    const response = await fetch(`http://localhost:3000/auctionRequest/schedule/${requestId}`, {
+    const response = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/auctionRequest/schedule/${requestId}`, {
       method: 'POST',
       headers: commonHeaders(),
       body: JSON.stringify(approvalBody),
@@ -217,7 +217,7 @@ const handleDeclineRequest = async () => {
 
 
   try {
-    const response = await fetch(`http://localhost:3000/auctionRequest/reject/${requestId}`, {
+    const response = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/auctionRequest/reject/${requestId}`, {
       method: 'POST',
       headers: commonHeaders(),
       body: JSON.stringify(declineBody),

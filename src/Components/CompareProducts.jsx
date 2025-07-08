@@ -20,7 +20,7 @@ const CompareProducts = () => {
     const [compareList, setCompareList] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch("http://localhost:3000/product/get")
+        fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/product/get")
             .then((res) => res.json())
             .then((data) => {
                 const normalProducts = data.products.filter(p => p.type === 'normal');

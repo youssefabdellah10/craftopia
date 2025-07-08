@@ -16,7 +16,7 @@ const ReviewRequests = () => {
         const fetchRequests = async () => {
             try {
                 const token = localStorage.getItem("token");
-                const response = await fetch("http://localhost:3000/customizationRequest/requests", {
+                const response = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customizationRequest/requests", {
                     headers: {
                         Authorization: `Bearer ${token}`,
                     },
@@ -80,7 +80,7 @@ const ReviewRequests = () => {
                 formData.append("image", replyData.imageFile);
             }
 
-            const response = await fetch(`http://localhost:3000/customizationResponse/respond/${requestId}`, {
+            const response = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customizationResponse/respond/${requestId}`, {
                 method: "POST",
                 headers: {
                     Authorization: `Bearer ${token}`,

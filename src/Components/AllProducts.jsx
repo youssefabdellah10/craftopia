@@ -16,7 +16,7 @@ const AllProducts = () => {
     const fetchProfile = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:3000/artist/myprofile", {
+        const res = await fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/artist/myprofile", {
           headers: {
             "Content-Type": "application/json",
             Authorization: `Bearer ${token}`,
@@ -39,7 +39,7 @@ const AllProducts = () => {
     setProductError(null);
     try {
       const token = localStorage.getItem("token");
-      const res = await fetch(`http://localhost:3000/product/get/${artistId}`, {
+      const res = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/product/get/${artistId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -87,7 +87,7 @@ const AllProducts = () => {
   const handleUpdateProduct = async (productId) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:3000/product/update/${productId}`, {
+      const response = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/product/update/${productId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -114,7 +114,7 @@ const AllProducts = () => {
 
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch(`http://localhost:3000/product/delete/${productId}`, {
+      const response = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/product/delete/${productId}`, {
         method: "DELETE",
         headers: {
           Authorization: `Bearer ${token}`,

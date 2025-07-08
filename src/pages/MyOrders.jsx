@@ -28,7 +28,7 @@ const MyOrders = () => {
         const fetchOrders = async () => {
             try {
                 setIsLoading(true);
-                const response = await axios.get('http://localhost:3000/order/myOrders', {
+                const response = await axios.get('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/order/myOrders', {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`,
                     },
@@ -67,7 +67,7 @@ const MyOrders = () => {
             const confirmed = window.confirm("Are you sure you want to cancel this order?");
             if (!confirmed) return;
 
-            await axios.put(`http://localhost:3000/order/cancel/${orderId}`, {}, {
+            await axios.put(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/order/cancel/${orderId}`, {}, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },
@@ -127,7 +127,7 @@ const MyOrders = () => {
 
         try {
             const response = await axios.post(
-                'http://localhost:3000/review/create',
+                'https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/review/create',
                 reviewData,
                 {
                     headers: {

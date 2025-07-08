@@ -10,7 +10,7 @@ const AbstractAuctionCard = ({ auction, index }) => {
   useEffect(() => {
     const fetchArtistRating = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/artist/getprofile/${auction.artistId}`);
+        const res = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/artist/getprofile/${auction.artistId}`);
         const data = await res.json();
         setArtistRating(parseFloat(data.artist.averageRating).toFixed(1));
       } catch (error) {

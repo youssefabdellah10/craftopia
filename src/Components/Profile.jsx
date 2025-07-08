@@ -11,7 +11,7 @@ const Profile = ({ initialShowEdit = false, onProfileComplete, initialProfile })
     if (!initialProfile) {
       const storedToken = localStorage.getItem("token");
       if (storedToken) {
-        fetch("http://localhost:3000/customer/getprofile", {
+        fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customer/getprofile", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${storedToken}`,

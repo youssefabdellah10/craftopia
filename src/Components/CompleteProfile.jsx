@@ -33,7 +33,7 @@ const CompleteProfile = ({ onClose, onProfileComplete, initialProfile }) => {
     const profileData = { name, username, phone, address };
     const token = localStorage.getItem("token");
 
-    fetch("http://localhost:3000/customer/createprofile", {
+    fetch("https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customer/createprofile", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,

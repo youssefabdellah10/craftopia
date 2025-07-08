@@ -12,7 +12,7 @@ const ShopByCategory = () => {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const response = await fetch('http://localhost:3000/category/all');
+        const response = await fetch('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/category/all');
         const data = await response.json();
 
         const formatted = data.categories.map((category, index) => ({

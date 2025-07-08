@@ -14,7 +14,7 @@ const AdminProfile = () => {
     const fetchProfile = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.get('http://localhost:3000/admin/profile', {
+            const response = await axios.get('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/admin/profile', {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },
@@ -44,7 +44,7 @@ const AdminProfile = () => {
 
     const handleSubmit = async () => {
         try {
-            await axios.post('http://localhost:3000/admin/profile/update', profile, {
+            await axios.post('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/admin/profile/update', profile, {
                 headers: {
                     Authorization: `Bearer ${localStorage.getItem('token')}`,
                 },

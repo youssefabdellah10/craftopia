@@ -165,7 +165,7 @@ const ArtistProfileCustomer = () => {
         const token = localStorage.getItem('token');
         const headers = token ? { Authorization: `Bearer ${token}` } : {};
 
-        const profileRes = await fetch(`http://localhost:3000/artist/getprofile/${id}`, {
+        const profileRes = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/artist/getprofile/${id}`, {
           headers
         });
 
@@ -185,7 +185,7 @@ const ArtistProfileCustomer = () => {
         }
 
 
-        const productRes = await fetch(`http://localhost:3000/product/get/${id}`, {
+        const productRes = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/product/get/${id}`, {
           headers
         });
         const productData = await productRes.json();
@@ -240,7 +240,7 @@ const ArtistProfileCustomer = () => {
       if (!token) return;
 
       try {
-        const res = await fetch(`http://localhost:3000/customer/followed-artists`, {
+        const res = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customer/followed-artists`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -257,7 +257,7 @@ const ArtistProfileCustomer = () => {
 
     const fetchAuctionProducts = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/auction/artist-product/${id}`);
+        const res = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/auction/artist-product/${id}`);
         const data = await res.json();
 
         const activeAuctions = data.auctions.filter(a => a.auction.status === 'active' || a.auction.status === 'scheduled');
@@ -292,7 +292,7 @@ const ArtistProfileCustomer = () => {
   useEffect(() => {
     const fetchReviews = async () => {
       try {
-        const res = await fetch(`http://localhost:3000/review/artist-reviews/${id}`);
+        const res = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/review/artist-reviews/${id}`);
         const data = await res.json();
 
         const allReviews = [];
@@ -382,8 +382,8 @@ const ArtistProfileCustomer = () => {
     }
 
     const url = isFollowing
-      ? `http://localhost:3000/customer/unfollow/${id}`
-      : `http://localhost:3000/customer/follow/${id}`;
+      ? `https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customer/unfollow/${id}`
+      : `https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/customer/follow/${id}`;
 
     try {
       const res = await fetch(url, {
@@ -428,7 +428,7 @@ const ArtistProfileCustomer = () => {
     }
 
     try {
-      const res = await fetch(`http://localhost:3000/report/createReportArtist/${artist.username}`, {
+      const res = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/report/createReportArtist/${artist.username}`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`

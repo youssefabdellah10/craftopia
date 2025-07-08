@@ -16,7 +16,7 @@ const ArtistsSection = () => {
     const fetchArtists = async () => {
       try {
         const token = localStorage.getItem('token');
-        const response = await axios.get('http://localhost:3000/artist/all', {
+        const response = await axios.get('https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/artist/all', {
           headers: { Authorization: `Bearer ${token}` },
         });
 

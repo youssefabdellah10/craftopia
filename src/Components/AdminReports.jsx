@@ -11,8 +11,8 @@ const AdminReports = () => {
     setLoading(true);
     const endpoint =
       activeTab === "submitted"
-        ? "http://localhost:3000/report/submitted"
-        : "http://localhost:3000/report/reviewed";
+        ? "https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/report/submitted"
+        : "https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/report/reviewed";
 
     try {
       const response = await fetch(endpoint, {
@@ -45,7 +45,7 @@ const AdminReports = () => {
 
   const handleReview = async (id) => {
     try {
-      const res = await fetch(`http://localhost:3000/report/review/${id}`, {
+      const res = await fetch(`https://craftopia-backend-youssefabdellah10-dev.apps.rm3.7wse.p1.openshiftapps.com/report/review/${id}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
