@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ChatBubbleOvalLeftIcon, XMarkIcon, ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/24/solid';
 import { ArrowPathIcon } from "@heroicons/react/24/solid";
-import ArtistResponses from "./ ArtistResponses";
+import ArtistResponses from "./ArtistResponses";
 import { motion } from "framer-motion";
 import {toast} from "react-hot-toast";
 const ReviewRequests = () => {
