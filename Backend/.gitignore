@@ -23,3 +23,5 @@ pids/
 *.swo
 
 src/config/firebaseServiceAccount.json
+
+/docker-compose.yml
