@@ -1,0 +1,25 @@
+# Dependency directories
+node_modules/
+node_modules/*
+**/node_modules
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+src/config/firebaseServiceAccount.json

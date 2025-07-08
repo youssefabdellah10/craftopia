@@ -1,0 +1,52 @@
+{
+  "name": "backend_grad",
+  "version": "1.0.0",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "build": "npm install",
+    "test": "jest",
+    "test:watch": "jest --watch"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "backend_grad": "file:",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^3.0.2",
+    "cloudinary": "^2.5.1",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.5.0",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.5.0",
+    "express-validator": "^7.2.1",
+    "firebase": "^11.3.1",
+    "firebase-admin": "^13.1.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1",
+    "node-cron": "^4.1.1",
+    "nodemailer": "^6.10.1",
+    "pg": "^8.13.3",
+    "pg-hstore": "^2.3.4",
+    "punycode": "^2.3.1",
+    "sequelize": "^6.37.5",
+    "socket.io": "^4.8.1",
+    "streamifier": "^0.1.1"
+  },
+  "devDependencies": {
+    "@jest/globals": "^30.0.4",
+    "@types/bcrypt": "^5.0.2",
+    "jest": "^30.0.4",
+    "nodemon": "^3.1.10",
+    "sinon": "^21.0.0",
+    "supertest": "^7.1.1"
+  }
+}

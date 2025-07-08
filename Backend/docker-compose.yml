@@ -1,0 +1,32 @@
+services:
+  backend:
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - DB_NAME=neondb
+      - DB_USER=neondb_owner
+      - DB_PASS=npg_VFtd46acKfJL
+      - DB_HOST=ep-super-resonance-a907tk1s-pooler.gwc.azure.neon.tech
+      - JWT_SECRET=0af946f8f623eb1f25fdbaa4032a856381842b8092ff4a13d3e9386c8ff0879e50d3a6e57434d597cf923d8a755e4b6b
+      - PORT=3000
+      - FIREBASE_DATABASE_URL=https://craftopia-b79f8-default-rtdb.europe-west1.firebasedatabase.app/
+      - FIREBASE_TYPE=service_account
+      - FIREBASE_PROJECT_ID=craftopia-b79f8
+      - FIREBASE_PRIVATE_KEY_ID=c474e658ad4f5163102780036341bede35577a81
+      - FIREBASE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDHVQud5LIjnZbc\nMdGO0f1WcdBgcQYCGoa13H09Df+ZCKd8lsOlJpz6JGtkGt6f6vy0vtWTxzuCayH0\nQeTMvxk2J0wZDJEidMIAg2Edg1OR8Y6RMIbNbL0LF5zyjAaAI0BB17ANZvOPj/FZ\nD6mOQluhiXaNkweGo94U4MSH1gkuSIaHSEFVTd5MiEKCK/vWK6NRCOzrWwVXYy2X\nyVCgo1LwxSiWBTI4NUp73dZW2hCpH0ZUBuqi8NGmlt1IWFIamXZoa74LgjnaWrwl\nCZ3nGLeQpOv3a1MAT3BLhWwqgrTQHeuHfJE84pQtGKZIMIIrD6GXnGpWEIetE/Od\n/Jh+gB4tAgMBAAECggEAC3c9IJMx2wIa1iYodXRnQ+RulcmSjKbtdkMNUih+uhUJ\nG03JybNnpqzXH447HYxFBnmOq/4zElyqupPavxtD7j1C75LtO0Pnj+N+v9WYxkWU\ni430xxa45g0w6jO7QP4mGVN4jUDNhEXFnneb63KuNiPD1b9uGKTO5rkKHP0nEIoh\nyxqDK0xZwKIgo+N0HazKcEtmVKeZtgts6S5Hd9CnI6t9/vBiZyjrXTHLXAi8QNV8\nWnmiRfnzQwGnXTywiM3I/vKTyGf4B05937zlHYyeAnWaGuIIdYCkugMnhP9B+a8Q\nc4/kVkfBengC+qdD2fHOOaFai7zeRF0lyfV/BAWssQKBgQD8XIWVmO1SKbjMSKTL\nWP0Jpk2o0uxXknIO2aAPWjwtR/w3JuuRLnL6qiVnl2DsbuhVz8Q4e+/6BL2kzrzw\nwzLIVnwLtGx24Vsv2988f2/bEVDeTdPm0dQsQ3hYqLfrj6mnYFzXtca09IN11HDv\nxr+uUQRH4gZf6KOMHH7V1OY9MQKBgQDKNMpKxk63xMO6m6Z2Ee0Ty6T3Y3WhsEnL\nmRY/UPRd83EkeOd0fJ9JPcUYDoejNmmWQFGEZCPiWQnv55lTFLoI7vmlilsvoBZE\nrVjXGFN6jOcOFoIXyQS7Y0/Yd4CHjcQRLbRrGR+5pu+DBK78GE+8LAT/bElyOxT4\nsCRx3dPBvQKBgQC8WwYtgQXo5FEU0EeHqvS6BhFCp6NVPW26Hb50lwIBPhBGzdrW\n8pdI9kOSzQ6/iYwJuFgZXI/hyTYO02t8PAUkOEC/r7uhA1S/JNm62tcO6B62vdoi\nFozJONaTPeKAhCq5TZgePIOCPln8UUK2BF6+6aNLT604WnfvNLmKOixakQKBgQCC\nY1Aer4mLDqJ37m6ErEKIBUU3ETeFL7wmQW0LHxS0kIpgzmXRw5qjC+XQAW6NXETx\n0j++cySAjJHP1TQVUsQzhoYMrQ7nwv8ZAf7LlLAf0kQb3X+9/q3Cd+PA3i5POqc3\nvJUeinDesjq37Yk4niSsXmZKnnUt59M6GbsmgbhOsQKBgH4QzyDv7QljPCME7trj\nnwZ8c49GPJusWbhjVaD6Du0NOOYGgu4N+4EvjJh8yAKKyz4tlLwNoKk9UGOf0PRb\ndEfcu2uBIIylmetx7r5gUQ1E8yK8097HGNF7YvOZEysYq35hFYmsvDmmTAPyoE7n\nFsjDch98ocNEqN/61XDzj/e2\n-----END PRIVATE KEY-----"
+      - FIREBASE_CLIENT_EMAIL=firebase-adminsdk-fbsvc@craftopia-b79f8.iam.gserviceaccount.com
+      - FIREBASE_CLIENT_ID=115853900944670716353
+      - FIREBASE_AUTH_URI=https://accounts.google.com/o/oauth2/auth
+      - FIREBASE_TOKEN_URI=https://oauth2.googleapis.com/token
+      - CLOUDINARY_CLOUD_NAME=dulfpugu8
+      - CLOUDINARY_API_KEY=366182191772117
+      - CLOUDINARY_API_SECRET=Rxpmc8IHWcb7Oq5lb3NukOvyFdc
+      - EMAIL_USER=carftopia10@gmail.com
+      - EMAIL_PASSWORD=qvel uoyu xfsg llgs
